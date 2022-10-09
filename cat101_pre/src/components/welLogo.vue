@@ -29,8 +29,8 @@
         </el-badge>
       </div>
       <!-- 用户头像图标 -->
-      <div style="float: right; margin-right: 30px; margin-top: -10px">
-        <el-avatar icon="el-icon-user-solid" :size="50"></el-avatar>
+      <div style="float: right; margin-right: 15px; margin-top: 1px">
+        <el-avatar icon="el-icon-user-solid" :size="35"></el-avatar>
       </div>
     </div>
   </div>
@@ -56,13 +56,14 @@ export default {
   background-color: #f4eed6;
   border: 1px solid #eee;
   border-bottom: 0;
+  margin: -8px;
 }
 
 .logo {
   float: left;
-  height: 100px;
-  margin-left: 40px;
-  margin-top: 10px;
+  height: 56px;
+  margin-left: 12px;
+  margin-top:13px;
   cursor: pointer;
 }
 
@@ -74,8 +75,8 @@ export default {
   float: right;
   height: 70px;
   width: 400px;
-  margin-top: 50px;
-  margin-right: 40px;
+  margin-top: 24px;
+  margin-right: 9px;
 }
 
 .login {
