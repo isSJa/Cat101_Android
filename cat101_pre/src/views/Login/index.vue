@@ -144,14 +144,14 @@ export default {
 <style scoped>
 .register {
   width: 400px;
-  height: 831px;
+  height: 853px;
   /* margin-left: 485px; */
   /* padding-top: 140px; */
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: relative;
-  right: 0px;
-  top: -2px;
+  right: -4px;
+  top: -1px;
 }
 
 /* 改变重置按钮鼠标经过时的样式 */

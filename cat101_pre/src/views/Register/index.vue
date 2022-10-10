@@ -177,14 +177,14 @@ export default {
 
 .register {
   width: 412px;
-  height: 831px;
+  height: 853px;
   /* margin-left: 16px; */
   /* padding-top: 281px; */
   background-image: url(@/assets/img/bg1.png);
   /* position: relative; */
   position: relative;
-  left: 0px;
-  top: -2px;
+  right: -4px;
+  top: -1px;
 }
 
 /* 给链接文字改变样式，它向右浮动，然后字体颜色为黑色 */
