@@ -150,8 +150,8 @@ export default {
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: relative;
-  right: 10px;
-  top: -24px;
+  right: 0px;
+  top: -2px;
 }
 
 /* 改变重置按钮鼠标经过时的样式 */
