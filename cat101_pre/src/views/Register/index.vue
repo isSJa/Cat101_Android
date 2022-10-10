@@ -133,14 +133,14 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .grid-content {
   /* box-sizing: border-box;
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: absolute;
   left: 0; */
-  height: 750px;
+  /*height: 750px;*/
 }
 
 .el-row {
@@ -177,7 +177,7 @@ export default {
 
 .register {
   width: 412px;
-  height: 774px;
+  height: 831px;
   /* margin-left: 16px; */
   /* padding-top: 281px; */
   background-image: url(@/assets/img/bg1.png);

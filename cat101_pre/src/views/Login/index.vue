@@ -118,7 +118,7 @@ export default {
   width: 412px;
   position: absolute;
   left: 0; */
-  height: 750px;
+  /*height: 750px;*/
 }
 
 .head {
@@ -144,7 +144,7 @@ export default {
 <style scoped>
 .register {
   width: 400px;
-  height: 774px;
+  height: 831px;
   /* margin-left: 485px; */
   /* padding-top: 140px; */
   background-image: url(@/assets/img/bg1.png);
