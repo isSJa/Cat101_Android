@@ -85,5 +85,11 @@ export default {
   // this.indexs();}
 }
 </script>
-<style>
+<style scoped>
+* {
+  margin: 0;
+}
+.el-main {
+  background-color: #e6ca99;
+}
 </style>

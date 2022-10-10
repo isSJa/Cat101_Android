@@ -127,4 +127,7 @@ export default {
   top: -22px;
   z-index: 999;
 }
+.el-col el-col-24 {
+  background-color: #e6ca99;
+}
 </style>

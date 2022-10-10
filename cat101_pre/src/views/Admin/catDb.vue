@@ -116,4 +116,7 @@ export default {
   color: #ff8800;
   text-decoration: underline 1px;
 }
+.el-main {
+  background-color: #e6ca99;
+}
 </style>

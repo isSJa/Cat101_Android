@@ -1,12 +1,18 @@
 <template>
   <div>
-    <!-- 头部欢迎页面 -->
     <welLogo></welLogo>
+    <navMenu v-show="this.$route.meta.isShow"></navMenu>
 
     <!-- 中间区域layout  左侧是导航栏 右侧是路由页面   -->
     <el-row :gutter="0">
-      <el-col :span="4" v-show="this.$route.meta.isShow"><div class="grid-content" ><navMenu></navMenu></div></el-col>
-      <el-col :span="this.$route.meta.span"><div class="grid-content"> <router-view></router-view></div></el-col>
+      <!-- <el-col :span="2" v-show="this.$route.meta.isShow">
+        <div class="grid-content" >
+        <navMenu></navMenu>
+       </div>
+      </el-col> -->
+      <el-col :span="24">
+        <div class="grid-content"> 
+        <router-view></router-view></div></el-col>
     </el-row>
   </div>
 </template>
@@ -35,7 +41,11 @@ export default {
 }
 </script>
 <style>
+ * {
+  margin: 0px;
+ }
   .el-row {
+    background-color: #e6ca99;
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;

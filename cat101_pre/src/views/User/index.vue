@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="20">
+    <el-row :gutter="0">
       <div v-for="i in catsALL" :key="i.cid">
         <el-col :span="11">
           <div class="grid-content">

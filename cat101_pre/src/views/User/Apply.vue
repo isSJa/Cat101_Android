@@ -101,7 +101,7 @@ export default {
 .el-image {
   width: 100%;
   display: block;
-  margin: 20px auto;
+  margin: -37px auto;
   border-radius: 8%
 }
 
