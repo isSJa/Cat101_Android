@@ -112,6 +112,14 @@ export default {
 </script>
 
 <style >
+/* .grid-content {
+  box-sizing: border-box;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: absolute;
+  left: 0;
+} */
+
 .head {
   font-size: large;
 }
@@ -136,8 +144,13 @@ export default {
 .register {
   width: 400px;
   height: 470px;
-  margin-left: 485px;
+  /* margin-left: 485px; */
   padding-top: 140px;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: relative;
+  right: 10px;
+  top: -24px;
 }
 
 /* 改变重置按钮鼠标经过时的样式 */
@@ -164,7 +177,9 @@ export default {
   background-color: #dfd6b9;
   border-radius: 30px;
   position: absolute;
-  top: 50px;
+  top: 0;
+  left: 8px;
+  box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
 .log {

@@ -133,7 +133,15 @@ export default {
   },
 };
 </script>
-
+<style>
+/* .grid-content {
+  box-sizing: border-box;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: absolute;
+  left: 0;
+} */
+</style>
 <style scoped>
 .el-link {
   position: relative;
@@ -150,18 +158,24 @@ export default {
   height: 200px;
   background-color: #dfd6b9;
   position: absolute;
-  top: 100px;
+  top: 80px;
+  left: 15px;
   /* left: 10px; */
   padding-bottom: 120px;
   border-radius: 30px;
+  box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
 .register {
-  width: 380px;
+  width: 412px;
   height: 450px;
-  margin-left: 8px;
-  padding-top: 140px;
+  /* margin-left: 16px; */
+  padding-top: 160px;
+  background-image: url(@/assets/img/bg1.png);
   /* position: relative; */
+  position: relative;
+  left: -7px;
+  top: -23px;
 }
 
 /* 给链接文字改变样式，它向右浮动，然后字体颜色为黑色 */
