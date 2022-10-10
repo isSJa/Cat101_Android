@@ -102,18 +102,19 @@ export default {
 }
 
 .btn {
-  width: 250px;
+  width: 150px;
   margin: 50px auto;
 }
 
 .el-button:last-child {
-  font-size: 24px;
-  padding: 20px 50px;
+  font-size: 20px;
+  padding: 15px 25px;
 }
 
 .el-button {
-  font-size: 18px;
-  letter-spacing: 3px;
+  font-size: 14px;
+  padding: 10px 15px;
+  /*letter-spacing: 3px;*/
 }
 
 .el-page-header {

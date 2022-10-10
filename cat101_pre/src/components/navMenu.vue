@@ -20,15 +20,6 @@
         <span>申请</span>
       </template>
      </el-menu-item>
-
-     <!-- 点击跳转导航栏 跳转到 圈子-->
-<!--     <el-menu-item index="/layout/daily" >-->
-<!--      <template slot="title">-->
-<!--        <i class="el-icon-s-opportunity"></i>-->
-<!--        <span>圈子</span>-->
-<!--      </template>-->
-<!--     </el-menu-item>-->
-
      <!-- 点击跳转导航栏 跳转到 收藏-->
      <el-menu-item index="/layout/like" style="padding: 0px;font-size: 10px">
       <template slot="title">

@@ -112,14 +112,14 @@ export default {
 </script>
 
 <style >
-.grid-content {
-  /* box-sizing: border-box;
+/*.grid-content {
+   box-sizing: border-box;
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: absolute;
   left: 0; */
-  height: 750px;
-}
+/*height: 750px;
+}*/
 
 .head {
   font-size: large;
@@ -144,14 +144,19 @@ export default {
 <style scoped>
 .register {
   width: 400px;
-  height: 774px;
+  height: 830px;
   /* margin-left: 485px; */
   /* padding-top: 140px; */
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: relative;
-  right: -1px;
-  top: -4px;
+
+  /* right: -1px;
+  top: -4px; */
+
+  /* right: -4px; */
+  top: -1px;
+
 }
 
 /* 改变重置按钮鼠标经过时的样式 */

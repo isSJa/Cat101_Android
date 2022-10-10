@@ -105,7 +105,7 @@ export default {
 </script>
 <style>
 .add{
-  margin: 100px;
+  margin: 119px;
 }
 .el-dialog{
   width: 100%;
