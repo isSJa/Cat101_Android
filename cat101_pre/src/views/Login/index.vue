@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <div style="position: absolute; left: 555px; top: 130px;">
+    <div style="position: absolute; left: 8px; top: 60px;">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-tabs class="header">
           <span slot="label" class="head">用户</span>
@@ -91,7 +91,7 @@ export default {
             this.$router.push("/layout/user"); //跳转到首页
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
-          }else{
+          } else {
             this.$router.push('/layout/admin');
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
@@ -127,6 +127,8 @@ export default {
 .el-tabs__content {
   /* border-radius: 50px; */
   height: 200px;
+  position: absolute;
+  top: 35px;
 }
 </style>
 <!-- < !-- Add "scoped" attribute to limit CSS to this component only -->
@@ -158,11 +160,11 @@ export default {
   font-size: large;
   font-weight: lighter;
   width: 380px;
-  height: 250px;
+  height: 270px;
   background-color: #dfd6b9;
-  border-radius: 50px;
+  border-radius: 30px;
   position: absolute;
-  top: 0;
+  top: 50px;
 }
 
 .log {
