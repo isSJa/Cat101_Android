@@ -24,7 +24,7 @@
       </div>
       <!-- 新消息显示按钮，可跳转到另一个消息页面   注意：登录前不显示 v-if="false"-->
       <div style="float: right; width: 84px; height: 40px" v-if=$store.state.isNew
-           @click="$router.push('/layout/login')">
+           @click="quit">
         <!--        <el-badge :value="2" class="item" type="warning">-->
         <el-badge class="item" type="warning">
           <el-button size="large">退出</el-button>
@@ -49,6 +49,13 @@ export default {
       sizeList: ["large", "medium", "small"],
     };
   },
+  methods:{
+    quit(){
+      this.$router.push('/layout/user');
+      this.$store.state.isNew = false;
+      this.$store.state.isLogin = true;
+    }
+  }
 };
 </script>
 

@@ -183,8 +183,8 @@ export default {
   background-image: url(@/assets/img/bg1.png);
   /* position: relative; */
   position: relative;
-  left: -7px;
-  top: -23px;
+  left: -4px;
+  top: -1px;
 }
 
 /* 给链接文字改变样式，它向右浮动，然后字体颜色为黑色 */

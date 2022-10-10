@@ -18,9 +18,9 @@
           <el-input v-model="form.cinfo" autocomplete="off"></el-input>
         </el-form-item>
 
-<!--        <el-form-item label="领养状态(0:未领养；1：以领养)" :label-width="formLabelWidth">-->
-<!--          <el-input v-model="form.cisadopt" autocomplete="off"></el-input>-->
-<!--        </el-form-item>-->
+        <el-form-item label="领养状态(0:未领养；1：以领养)" :label-width="formLabelWidth">
+          <el-input v-model="form.cisadopt" autocomplete="off"></el-input>
+        </el-form-item>
         <el-form-item label="上传图片" prop="imageUrl">
           <el-upload
             action="http://localhost:8082/file/upload"
@@ -64,7 +64,7 @@ export default {
         ccolor: "",
         cinfo: "",
         curl: "",
-        cisadopt: 0,
+        cisadopt: "",
       },
       formLabelWidth: "120px",
       json :"",
@@ -105,6 +105,9 @@ export default {
 </script>
 <style>
 .add{
-  margin: 50px;
+  margin: 100px;
 }
+.el-dialog{
+  width: 100%;
+} 
 </style>
