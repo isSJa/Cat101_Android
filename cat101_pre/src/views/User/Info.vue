@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-page-header @back="goBack"></el-page-header>
+    <el-page-header @back="$router.push('/layout/user')"></el-page-header>
     <div class="info">
       <el-button type="danger" plain class="star" @click="star">收藏</el-button>
       <el-image :src=(cat.curl) :preview-src-list="srcList" title="点击查看大图"></el-image>
       <div class="msg">
-        <el-tag type="info">姓名</el-tag>
+        <el-tag type="info">猫咪名称</el-tag>
         <div class="detail">{{ cat.cname }}</div>
         <el-tag type="info">毛色</el-tag>
         <div class="detail">{{ cat.ccolor }}</div>
@@ -45,9 +45,6 @@ export default {
     };
   },
   methods: {
-    goBack() {
-      window.history.go(-1);
-    },
     indexs: async function () {
       this.cat=JSON.parse(localStorage.getItem('cat'));
     },

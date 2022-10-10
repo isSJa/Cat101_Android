@@ -6,7 +6,7 @@
           <div class="grid-content">
             <el-image :src=(i.curl) @click="turnInto(i.cid)"></el-image>
                         <div class="title">{{ i.cname }}</div>
-                        <div class="color">{{ i.ccolor }}</div>
+                        <div class="status">{{ i.ccolor }}</div>
                         <div class="content">{{ i.cinfo }}</div>
           </div>
         </el-col>
@@ -63,14 +63,13 @@ export default {
 }
 
 .el-col {
-  display: ;
   cursor: pointer;
   margin: 40px 0 0 40px;
   border-bottom: 1px #b6b6b6 solid;
 }
 
 .el-col:nth-child(4n+1) {
-  margin-left: 80px;
+  margin-left: 50px;
 }
 
 .bg-purple-dark {
@@ -106,7 +105,7 @@ export default {
   border-bottom: 1px #b6b6b6 solid;
 }
 
-.color {
+.status {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: center;
