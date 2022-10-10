@@ -112,13 +112,14 @@ export default {
 </script>
 
 <style >
-/* .grid-content {
-  box-sizing: border-box;
+.grid-content {
+  /* box-sizing: border-box;
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: absolute;
-  left: 0;
-} */
+  left: 0; */
+  height: 750px;
+}
 
 .head {
   font-size: large;
@@ -143,9 +144,9 @@ export default {
 <style scoped>
 .register {
   width: 400px;
-  height: 470px;
+  height: 774px;
   /* margin-left: 485px; */
-  padding-top: 140px;
+  /* padding-top: 140px; */
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: relative;
@@ -177,7 +178,7 @@ export default {
   background-color: #dfd6b9;
   border-radius: 30px;
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 8px;
   box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }

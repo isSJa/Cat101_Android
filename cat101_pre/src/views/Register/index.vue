@@ -134,12 +134,21 @@ export default {
 };
 </script>
 <style>
-/* .grid-content {
-  box-sizing: border-box;
+.grid-content {
+  /* box-sizing: border-box;
   background-image: url(@/assets/img/bg1.png);
   width: 412px;
   position: absolute;
-  left: 0;
+  left: 0; */
+  height: 750px;
+}
+
+.el-row {
+  height: 750px;
+}
+
+/* .el-col {
+  height: 750px;
 } */
 </style>
 <style scoped>
@@ -168,9 +177,9 @@ export default {
 
 .register {
   width: 412px;
-  height: 450px;
+  height: 774px;
   /* margin-left: 16px; */
-  padding-top: 160px;
+  /* padding-top: 281px; */
   background-image: url(@/assets/img/bg1.png);
   /* position: relative; */
   position: relative;
