@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-page-header @back="goBack"></el-page-header>
+<!--    <el-page-header @back="goBack"></el-page-header>-->
     <div class="title">~猫咪领养申请~</div>
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="55px" class="demo-ruleForm">
       <el-image :src=(cat.curl) fit="scale-down" :preview-src-list="srcList" title="点击查看大图"></el-image>
       <el-form-item label="您的id">
         <el-input v-model="ruleForm.uid" disabled></el-input>
@@ -10,9 +10,9 @@
       <el-form-item label="猫咪id">
         <el-input v-model="ruleForm.cid" disabled></el-input>
       </el-form-item>
-      <el-form-item label="领养原因" prop="ainfo">
-        <el-input v-model="ruleForm.ainfo" type="textarea" :placeholder="'您可以从爱好、经验、性格等方面阐述领养原因\n（100字以内）'"
-                  rows="20" style="font-size: 16px"></el-input>
+      <el-form-item label="说明" prop="ainfo">
+        <el-input v-model="ruleForm.ainfo" type="textarea" :placeholder="'您可以从爱好、经验、性格等方面阐述领养原因（100字以内）'"
+                  rows="15" style="font-size: 12px"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">提交申请</el-button>
@@ -55,9 +55,6 @@ export default {
     };
   },
   methods: {
-    goBack() {
-      window.history.go(-1);
-    },
     submitForm(formName) {
       //点击提交表单触发    校验和提交信息到后端接口
       this.$refs[formName].validate(async (valid) => {
@@ -88,32 +85,33 @@ export default {
 <style scoped>
 .title {
   text-align: center;
-  font-size: 28px;
-  margin: 20px;
+  font-size: 16px;
+  margin-top: 20px;
   font-family: "微软雅黑 Light";
   letter-spacing: 3px;
-  font-weight: 500;
+  font-weight: bold;
+  color: #ff8800;
 }
 
 .el-form {
   margin: 0 auto;
-  width: 60%;
+  width: 80%;
 }
 
 .el-image {
-  width: 50%;
+  width: 100%;
   display: block;
-  margin: 50px auto;
+  margin: 20px auto;
   border-radius: 8%
 }
 
 .el-button {
-  margin-left: 24px;
+  /*margin-left: 24px;*/
 }
 
 
 .el-form-item:last-child {
-  width: 400px;
+  width: 300px;
   margin: 0 auto
 }
 

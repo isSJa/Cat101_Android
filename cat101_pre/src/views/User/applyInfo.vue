@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-page-header @back="goBack"></el-page-header>
+<!--    <el-page-header @back="goBack"></el-page-header>-->
     <div class="info">
       <el-image :src=(apply.curl) :preview-src-list="srcList" title="点击查看猫咪大图"></el-image>
       <div class="msg">
@@ -41,9 +41,6 @@ export default {
     };
   },
   methods: {
-    goBack() {
-      window.history.go(-1);
-    },
     indexs: async function () {
       this.apply = JSON.parse(localStorage.getItem('apply'));
     },
@@ -66,7 +63,7 @@ export default {
 <style scoped>
 .info {
   position: relative;
-  width: 800px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -99,18 +96,19 @@ export default {
 }
 
 .btn {
-  width: 250px;
+  width: 150px;
   margin: 50px auto;
 }
 
 .el-button:last-child {
-  font-size: 24px;
-  padding: 20px 50px;
+  font-size: 20px;
+  padding: 15px 25px;
 }
 
 .el-button {
-  font-size: 18px;
-  letter-spacing: 3px;
+  font-size: 14px;
+  padding: 10px 15px;
+  /*letter-spacing: 3px;*/
 }
 
 .el-page-header {
@@ -119,8 +117,8 @@ export default {
 
 .star {
   position: absolute;
-  right: 120px;
-  top: -15px;
+  right: 15px;
+  top: -22px;
   z-index: 999;
 }
 
