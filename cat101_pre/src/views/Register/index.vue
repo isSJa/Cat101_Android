@@ -1,49 +1,52 @@
 <template>
   <div class="register">
     <div class="inset">
+      <div class="input">
+        <!-- <el-button type="warning" plain @click="$router.push('/layout/login')">已注册，去登录</el-button> -->
+        <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+          <!-- 账号 -->
+          <el-form-item label="账号" prop="uname">
+            <el-input v-model="ruleForm.uname" autocomplete="off" required="true"></el-input>
+          </el-form-item>
+          <!-- 密码 -->
+          <el-form-item label="密码" prop="upwd">
+            <el-input type="password" v-model="ruleForm.upwd" autocomplete="off"></el-input>
+          </el-form-item>
+          <!-- 确认密码 -->
+          <el-form-item label="确认密码" prop="checkPass">
+            <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+          </el-form-item>
 
-      <!-- <el-button type="warning" plain @click="$router.push('/layout/login')">已注册，去登录</el-button> -->
-      <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-        <!-- 账号 -->
-        <el-form-item label="账号" prop="uname">
-          <el-input v-model="ruleForm.uname" autocomplete="off" required="true"></el-input>
-        </el-form-item>
-        <!-- 密码 -->
-        <el-form-item label="密码" prop="upwd">
-          <el-input type="password" v-model="ruleForm.upwd" autocomplete="off"></el-input>
-        </el-form-item>
-        <!-- 确认密码 -->
-        <el-form-item label="确认密码" prop="checkPass">
-          <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-        </el-form-item>
-        <!-- 下面是提交和重置按钮，我改变了按钮的样式 -->
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')" style="margin: auto;background-color: #d7cd94;
+          <!-- 下面是提交和重置按钮，我改变了按钮的样式 -->
+          <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')" style="margin: auto;background-color: #d7cd94;
           border-color: #c2b79a;">提交</el-button>
-          <!-- 重置 -->
-          <el-button @click="resetForm('ruleForm')" style="background-color: #d7cd94;border-color: #c2b79a;">重置
-          </el-button>
-          <!-- 前往登录 -->
-          <el-link type="warning" @click="$router.push('/layout/login')">已注册？前往登录</el-link>
-        </el-form-item>
-      </el-form>
+            <!-- 重置 -->
+            <el-button @click="resetForm('ruleForm')" style="background-color: #d7cd94;border-color: #c2b79a;">重置
+            </el-button>
+            <!-- 前往登录 -->
+            <el-link type="warning" @click="$router.push('/layout/login')">已注册？前往登录</el-link>
+          </el-form-item>
+        </el-form>
+
+      </div>
     </div>
   </div>
 </template>
 
 
 <script>
-  import { registerAPI } from "@/api/index";
+import { registerAPI } from "@/api/index";
 export default {
   name: "myRegister",
-// 数据
+  // 数据
   data() {
     var checkUname = (rule, value, callback) => {
       if (!value) {
         return callback(new Error("账号不能为空"));
-      }else {
-            callback();
-          }
+      } else {
+        callback();
+      }
       // setTimeout(() => {
       //   if (!Number.isInteger(value)) {
       //     callback(new Error("请输入数字值"));
@@ -77,15 +80,15 @@ export default {
     };
     return {
       ruleForm: {
-        uname:"",
+        uname: "",
         upwd: "",
-        uxname:"123",
-        usex:"1",
-        utel:"13412345678",
-        usite:"1",
-        utype:"0",
-        usrl:"1",
-        uinfo:"1",
+        uxname: "123",
+        usex: "1",
+        utel: "13412345678",
+        usite: "1",
+        utype: "0",
+        usrl: "1",
+        uinfo: "1",
         checkPass: "",
 
       },
@@ -99,21 +102,21 @@ export default {
 
   // 方法
   methods: {
-//点击提交表单触发    校验和提交信息到后端接口
+    //点击提交表单触发    校验和提交信息到后端接口
     submitForm(formName) {
-      this.$refs[formName].validate( async (valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
           console.log(this.ruleForm);                //打印出从表单提交来的需要向后端传递的数据，用于验证编写是否成功，后续可删除这段！！！！！！！
           const json = JSON.stringify(this.ruleForm);
-          const {data :res} = await registerAPI(json);    //提交表单后获取到表单数据对象ruleForm然后使用axios传递给接口函数，得到一个返回值，是promise对象
+          const { data: res } = await registerAPI(json);    //提交表单后获取到表单数据对象ruleForm然后使用axios传递给接口函数，得到一个返回值，是promise对象
           console.log(res.code);                                        //打印后端返回结果,用于验证编写是否成功，后续可删除这段！！！！！！！
 
-          if(res.code === '200') {
+          if (res.code === '200') {
+
             this.$message.success("注册成功！！")                            ////后端返回成功结果，提示后端返回的错误message或者也可以自己设置提示
             this.$router.push('/layout/login')
 
-
-          }else{
+          } else {
             this.$message.error(res.msg) ////后端返回失败结果，提示后端返回的错误message或者也可以自己设置提示
           }
 
@@ -130,25 +133,49 @@ export default {
   },
 };
 </script>
-
+<style>
+/* .grid-content {
+  box-sizing: border-box;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: absolute;
+  left: 0;
+} */
+</style>
 <style scoped>
+.el-link {
+  position: relative;
+  left: 10px;
+}
+
+.input {
+  position: relative;
+  left: -15px;
+}
+
 .inset {
-  width: 400px;
+  width: 380px;
   height: 200px;
   background-color: #dfd6b9;
   position: absolute;
-  top: 200px;
-  left: 800px;
-  padding: 80px;
-  padding-left: 50px;
+  top: 80px;
+  left: 15px;
+  /* left: 10px; */
+  padding-bottom: 120px;
   border-radius: 30px;
+  box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
 .register {
-  width: 400px;
+  width: 412px;
   height: 450px;
-  margin-left: 485px;
-  padding-top: 140px;
+  /* margin-left: 16px; */
+  padding-top: 160px;
+  background-image: url(@/assets/img/bg1.png);
+  /* position: relative; */
+  position: relative;
+  left: -7px;
+  top: -23px;
 }
 
 /* 给链接文字改变样式，它向右浮动，然后字体颜色为黑色 */
@@ -165,5 +192,9 @@ export default {
 
 .el-button--primary:hover {
   color: rgb(32, 30, 27);
+}
+.demo-ruleForm {
+  position: absolute;
+  top: 50px;
 }
 </style>

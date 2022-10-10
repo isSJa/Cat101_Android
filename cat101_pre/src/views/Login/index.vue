@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <div style="position: absolute; left: 850px; top: 200px;">
+    <div style="position: absolute; left: 8px; top: 60px;">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-tabs class="header">
           <span slot="label" class="head">用户</span>
@@ -91,7 +91,7 @@ export default {
             this.$router.push("/layout/user"); //跳转到首页
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
-          }else{
+          } else {
             this.$router.push('/layout/admin');
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
@@ -112,6 +112,14 @@ export default {
 </script>
 
 <style >
+/* .grid-content {
+  box-sizing: border-box;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: absolute;
+  left: 0;
+} */
+
 .head {
   font-size: large;
 }
@@ -127,6 +135,8 @@ export default {
 .el-tabs__content {
   /* border-radius: 50px; */
   height: 200px;
+  position: absolute;
+  top: 35px;
 }
 </style>
 <!-- < !-- Add "scoped" attribute to limit CSS to this component only -->
@@ -134,8 +144,13 @@ export default {
 .register {
   width: 400px;
   height: 470px;
-  margin-left: 485px;
+  /* margin-left: 485px; */
   padding-top: 140px;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: relative;
+  right: 10px;
+  top: -24px;
 }
 
 /* 改变重置按钮鼠标经过时的样式 */
@@ -158,11 +173,13 @@ export default {
   font-size: large;
   font-weight: lighter;
   width: 380px;
-  height: 250px;
+  height: 270px;
   background-color: #dfd6b9;
-  border-radius: 50px;
+  border-radius: 30px;
   position: absolute;
   top: 0;
+  left: 8px;
+  box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
 .log {

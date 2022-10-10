@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-page-header @back="$router.push('/layout/user')"></el-page-header>
+<!--    <el-page-header @back="$router.push('/layout/user')"></el-page-header>-->
     <div class="info">
       <el-button type="danger" plain class="star" @click="star">收藏</el-button>
       <el-image :src=(cat.curl) :preview-src-list="srcList" title="点击查看大图"></el-image>
@@ -69,7 +69,7 @@ export default {
 <style scoped>
 .info {
   position: relative;
-  width: 800px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -122,8 +122,8 @@ export default {
 
 .star {
   position: absolute;
-  right: 120px;
-  top: -15px;
+  right: 15px;
+  top: -22px;
   z-index: 999;
 }
 </style>

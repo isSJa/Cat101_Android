@@ -2,15 +2,17 @@
   <!-- 一个头部容器，装着头部的logo和按钮 -->
   <div class="header-g">
     <!-- logo图片 -->
-    <div class="logo" @click="$router.push('/layout/user')">
-      <img src="../assets/img/logo-1.png" alt="LOGO"/>
-    </div>
+<!--    <div class="logo">-->
+<!--      <img src="../assets/img/logo-1.png" alt="LOGO"/>-->
+<!--    </div>-->
     <!-- 欢迎语
        <div>可爱的猫猫在等你抱回家哦！</div> -->
 
     <!-- 右边的消息和头像以及设置按钮 -->
     <div class="block">
-
+      <div class="logo">
+        <img src="../assets/img/logo-1.png" alt="LOGO"/>
+      </div>
 
       <!--TODO：以下代码需要进行修改-->
       <!--登录注册按钮  注意：登录后不显示 v-if="false"-->
@@ -29,9 +31,9 @@
         </el-badge>
       </div>
       <!-- 用户头像图标 -->
-      <div style="float: right; margin-right: 30px; margin-top: -10px">
-        <el-avatar icon="el-icon-user-solid" :size="50"></el-avatar>
-      </div>
+<!--      <div style="float: right; margin-right: 3px; margin-top: 1px">-->
+<!--        <el-avatar icon="el-icon-user-solid" :size="35"></el-avatar>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
@@ -52,18 +54,18 @@ export default {
 
 <style>
 .header-g {
-  height: 140px;
+  height: 93px;
   background-color: #f4eed6;
   border: 1px solid #eee;
   border-bottom: 0;
+  margin: -8px;
+  z-index: 999;
 }
 
 .logo {
   float: left;
-  height: 100px;
-  margin-left: 40px;
-  margin-top: 10px;
-  cursor: pointer;
+  height: 56px;
+  margin-left: 12px;
 }
 
 .logo img {
@@ -74,14 +76,15 @@ export default {
   float: right;
   height: 70px;
   width: 400px;
-  margin-top: 50px;
-  margin-right: 40px;
+  margin-top: 24px;
+  margin-right: 9px;
 }
 
 .login {
   float: right;
   width: 152px;
   height: 32px;
-  margin-top: 4px;
+  margin-top: 8px;
+  margin-right: 20px;
 }
 </style>
