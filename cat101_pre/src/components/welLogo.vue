@@ -2,16 +2,16 @@
   <!-- 一个头部容器，装着头部的logo和按钮 -->
   <div class="header-g">
     <!-- logo图片 -->
-<!--    <div class="logo">-->
-<!--      <img src="../assets/img/logo-1.png" alt="LOGO"/>-->
-<!--    </div>-->
+    <!--    <div class="logo">-->
+    <!--      <img src="../assets/img/logo-1.png" alt="LOGO"/>-->
+    <!--    </div>-->
     <!-- 欢迎语
        <div>可爱的猫猫在等你抱回家哦！</div> -->
 
     <!-- 右边的消息和头像以及设置按钮 -->
     <div class="block">
       <div class="logo">
-        <img src="../assets/img/logo-1.png" alt="LOGO"/>
+        <img src="../assets/img/logo-1.png" alt="LOGO" />
       </div>
 
       <!--TODO：以下代码需要进行修改-->
@@ -24,16 +24,16 @@
       </div>
       <!-- 新消息显示按钮，可跳转到另一个消息页面   注意：登录前不显示 v-if="false"-->
       <div style="float: right; width: 84px; height: 40px" v-if=$store.state.isNew
-           @click="$router.push('/layout/login')">
+        @click="$router.push('/layout/login')">
         <!--        <el-badge :value="2" class="item" type="warning">-->
         <el-badge class="item" type="warning">
           <el-button size="large">退出</el-button>
         </el-badge>
       </div>
       <!-- 用户头像图标 -->
-<!--      <div style="float: right; margin-right: 3px; margin-top: 1px">-->
-<!--        <el-avatar icon="el-icon-user-solid" :size="35"></el-avatar>-->
-<!--      </div>-->
+      <!--      <div style="float: right; margin-right: 3px; margin-top: 1px">-->
+      <!--        <el-avatar icon="el-icon-user-solid" :size="35"></el-avatar>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -43,9 +43,9 @@ export default {
   data() {
     return {
       circleUrl:
-          "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       squareUrl:
-          "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+        "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
       sizeList: ["large", "medium", "small"],
     };
   },
@@ -60,6 +60,7 @@ export default {
   border-bottom: 0;
   margin: -8px;
   z-index: 999;
+  width: 418px;
 }
 
 .logo {
@@ -77,7 +78,7 @@ export default {
   height: 70px;
   width: 400px;
   margin-top: 24px;
-  margin-right: 9px;
+  margin-left: 1px;
 }
 
 .login {
