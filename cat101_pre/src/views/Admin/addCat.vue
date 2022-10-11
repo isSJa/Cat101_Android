@@ -99,12 +99,16 @@ export default {
       // console.log(res.data);
       this.$message.success("猫咪添加成功！！");
       // this.isDisabled=true;
+      this.$router.push('/layout/admin/catdb')
     }
   },
 };
 </script>
 <style>
 .add{
-  margin: 50px;
+  margin: 119px;
 }
+.el-dialog{
+  width: 100%;
+} 
 </style>

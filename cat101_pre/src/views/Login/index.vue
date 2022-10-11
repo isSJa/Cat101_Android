@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <div style="position: absolute; left: 555px; top: 130px;">
+    <div style="position: absolute; left: 8px; top: 60px;">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-tabs class="header">
           <span slot="label" class="head">用户</span>
@@ -78,11 +78,11 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          console.log(this.ruleForm);
-          console.log(JSON.stringify(this.ruleForm)); //打印出从表单提交来的需要向后端传递的数据，用于验证编写是否成功，后续可删除这段！！！！！！！
+          // console.log(this.ruleForm);
+          // console.log(JSON.stringify(this.ruleForm)); //打印出从表单提交来的需要向后端传递的数据，用于验证编写是否成功，后续可删除这段！！！！！！！
           const json = JSON.stringify(this.ruleForm);
           const { data: res } = await loginAPI(json);
-          console.log(res); //打印后端返回结果,用于验证编写是否成功，后续可删除这段！！！！！！！
+          // console.log(res); //打印后端返回结果,用于验证编写是否成功，后续可删除这段！！！！！！！
           if (res.code !== "200") return this.$message.error(res.msg); //后端返回失败结果，提示后端返回的错误message或者也可以自己设置提示
           this.$message.success("登录成功"); //后端返回成功结果，提示后端返回的成功message或者也可以自己设置提示
           // this.updataToken(res.token)
@@ -91,7 +91,7 @@ export default {
             this.$router.push("/layout/user"); //跳转到首页
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
-          }else{
+          } else {
             this.$router.push('/layout/admin');
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
             this.$store.state.isLogin = false;
@@ -112,6 +112,15 @@ export default {
 </script>
 
 <style >
+/*.grid-content {
+   box-sizing: border-box;
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: absolute;
+  left: 0; */
+/*height: 750px;
+}*/
+
 .head {
   font-size: large;
 }
@@ -127,15 +136,27 @@ export default {
 .el-tabs__content {
   /* border-radius: 50px; */
   height: 200px;
+  position: absolute;
+  top: 35px;
 }
 </style>
 <!-- < !-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .register {
   width: 400px;
-  height: 470px;
-  margin-left: 485px;
-  padding-top: 140px;
+  height: 830px;
+  /* margin-left: 485px; */
+  /* padding-top: 140px; */
+  background-image: url(@/assets/img/bg1.png);
+  width: 412px;
+  position: relative;
+
+  /* right: -1px;
+  top: -4px; */
+
+  /* right: -4px; */
+  top: -1px;
+
 }
 
 /* 改变重置按钮鼠标经过时的样式 */
@@ -158,11 +179,13 @@ export default {
   font-size: large;
   font-weight: lighter;
   width: 380px;
-  height: 250px;
+  height: 270px;
   background-color: #dfd6b9;
-  border-radius: 50px;
+  border-radius: 30px;
   position: absolute;
-  top: 0;
+  top: 60px;
+  left: 8px;
+  box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
 .log {

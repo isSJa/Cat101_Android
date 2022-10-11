@@ -1,19 +1,20 @@
 package com.example.cat101.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.cat101.common.Result;
+import com.example.cat101.controller.dto.AdoptPreDto;
+import com.example.cat101.entity.Adopt;
+import com.example.cat101.service.IAdoptService;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.List;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.cat101.service.IAdoptService;
-import com.example.cat101.entity.Adopt;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author redred
@@ -45,19 +46,26 @@ public class AdoptController {
         return Result.success();
     }
 
-    @GetMapping
-    public Result findAll() {
-        return Result.success(adoptService.list());
+    @GetMapping("/{uid}")
+    public Result findAll(@PathVariable Integer uid) {
+        List<AdoptPreDto> list = adoptService.searchAll(uid);
+        return Result.success(list);
     }
 
-    @GetMapping("/{id}")
-    public Result findOne(@PathVariable Integer id) {
-        return Result.success(adoptService.getById(id));
+    @GetMapping("/find")
+    public Result findAdopt(){
+        List<Adopt>list=adoptService.list();
+        return Result.success(list);
+    }
+
+    @GetMapping("/detail/{aid}")
+    public Result findOne(@PathVariable Integer aid) {
+        return Result.success(adoptService.searchByAid(aid));
     }
 
     @GetMapping("/page")
     public Result findPage(@RequestParam Integer pageNum,
-                                @RequestParam Integer pageSize) {
+                           @RequestParam Integer pageSize) {
         QueryWrapper<Adopt> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByDesc("Aid");
         return Result.success(adoptService.page(new Page<>(pageNum, pageSize), queryWrapper));

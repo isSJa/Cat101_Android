@@ -1,12 +1,12 @@
 <template>
   <div>
-    <el-row :gutter="20">
+    <el-row :gutter="0">
       <div v-for="i in catsALL" :key="i.cid">
-        <el-col :span="5">
+        <el-col :span="11">
           <div class="grid-content">
             <el-image :src=(i.curl) @click="turnInto(i.cid)"></el-image>
                         <div class="title">{{ i.cname }}</div>
-                        <div class="color">{{ i.ccolor }}</div>
+                        <div class="status">{{ i.ccolor }}</div>
                         <div class="content">{{ i.cinfo }}</div>
           </div>
         </el-col>
@@ -59,18 +59,17 @@ export default {
 <!-- <style lang="less" scoped></style> -->
 <style scoped>
 .el-row {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
 .el-col {
-  display: ;
   cursor: pointer;
-  margin: 40px 0 0 40px;
+  margin: 20px 0 0 10px;
   border-bottom: 1px #b6b6b6 solid;
 }
 
 .el-col:nth-child(4n+1) {
-  margin-left: 80px;
+  /*margin-left: 80px;*/
 }
 
 .bg-purple-dark {
@@ -106,7 +105,7 @@ export default {
   border-bottom: 1px #b6b6b6 solid;
 }
 
-.color {
+.status {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: center;
@@ -114,11 +113,11 @@ export default {
 }
 
 .content {
-  font-size: 14px;
+  font-size: 4px;
   color: #b6b6b6;
   margin: 0 10px 10px 10px;
-  text-indent: 2em;
-  line-height: 20px;
+  /*text-indent: 2em;*/
+  line-height: 16px;
 }
 
 .el-image {
