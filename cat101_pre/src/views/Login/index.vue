@@ -111,7 +111,7 @@ export default {
 };
 </script>
 
-<style >
+<style scoped>
 /*.grid-content {
    box-sizing: border-box;
   background-image: url(@/assets/img/bg1.png);

@@ -85,33 +85,32 @@ export default {
 <style scoped>
 .title {
   text-align: center;
-  font-size: 16px;
-  margin-top: 20px;
+  font-size: 28px;
+  margin: 20px;
   font-family: "微软雅黑 Light";
   letter-spacing: 3px;
-  font-weight: bold;
-  color: #ff8800;
+  font-weight: 500;
 }
 
 .el-form {
   margin: 0 auto;
-  width: 80%;
+  width: 60%;
 }
 
 .el-image {
-  width: 100%;
+  width: 50%;
   display: block;
-  margin: -37px auto;
+  margin: 50px auto;
   border-radius: 8%
 }
 
 .el-button {
-  /*margin-left: 24px;*/
+  margin-left: 24px;
 }
 
 
 .el-form-item:last-child {
-  width: 300px;
+  width: 400px;
   margin: 0 auto
 }
 

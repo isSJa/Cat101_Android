@@ -3,8 +3,7 @@
     <el-menu :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
-      router="ture">
+      router>
         <!-- 点击导航栏跳转到首页 -->
       <el-menu-item index="/layout/user" default-active>
         <template slot="title">
@@ -13,7 +12,7 @@
         </template>
       </el-menu-item>
         <!-- 点击导航栏跳转到我的申请 -->
-      <el-menu-item index="/layout/apply" >
+      <el-menu-item index="/layout/Mine" >
         <template slot="title">
         <i class="el-icon-user-solid" style="margin: 0px;"></i>
         <span>我的申请</span>
@@ -25,7 +24,7 @@
           <i class="el-icon-star-off"></i>
           <span>收藏</span>
         </template>
-      </el-menu-item>     
+      </el-menu-item>
     </el-menu>
 </template>
 <script>

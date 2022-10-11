@@ -50,7 +50,7 @@ export default {
   },
   methods:{
     quit(){
-      this.$router.push('/layout/user');
+      this.$router.push('/layout/login');
       this.$store.state.isNew = false;
       this.$store.state.isLogin = true;
     }
