@@ -23,7 +23,7 @@
 <!--        </el-form-item>-->
         <el-form-item label="上传图片" prop="imageUrl">
           <el-upload
-            action="http://localhost:8082/file/upload"
+            action="http://10.151.108.84:8082/file/upload"
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-success="handleAvatarSuccess"
