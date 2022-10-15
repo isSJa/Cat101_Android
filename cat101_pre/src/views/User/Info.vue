@@ -67,7 +67,13 @@ export default {
 
 <!-- <style lang="less" scoped></style> -->
 <style scoped>
-.info {
+  /**{*/
+  /*  outline: solid #f00 1px !important;*/
+  /*  background: #000 !important;*/
+  /*  color: #fff !important;*/
+  /*}*/
+
+  .info {
   position: relative;
   width: 300px;
   margin: 0 auto;
@@ -96,7 +102,7 @@ export default {
 .detail {
   margin-left: 30px;
   margin-bottom: 20px;
-  width: 560px;
+  /*width: 560px;*/
   text-indent: 2em;
   line-height: 2em;
 }

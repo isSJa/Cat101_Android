@@ -16,7 +16,10 @@
           <el-form-item label="确认密码" prop="checkPass">
             <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
           </el-form-item>
-
+          <!--电话号码-->
+          <el-form-item label="电话号码" prop="utel">
+            <el-input type="text" onkeyup="value=value.replace(/[^\d]/g,'')" v-model="ruleForm.utel" autocomplete="off"></el-input>
+          </el-form-item>
           <!-- 下面是提交和重置按钮，我改变了按钮的样式 -->
           <el-form-item>
             <el-button type="primary" @click="submitForm('ruleForm')" style="margin: auto;background-color: #d7cd94;
@@ -69,6 +72,15 @@ export default {
         callback();
       }
     };
+    var checkUtel=(rule,value,callback)=>{
+      if(!value){
+        return callback(new Error("电话号码不能为空"));
+      }else if(value.length!=11){
+        callback("请输入正确的电话号码");
+      }else{
+        callback();
+      }
+    }
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
@@ -84,7 +96,7 @@ export default {
         upwd: "",
         uxname: "123",
         usex: "1",
-        utel: "13412345678",
+        utel: "",
         usite: "1",
         utype: "0",
         usrl: "1",
@@ -96,6 +108,7 @@ export default {
         upwd: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
         uname: [{ validator: checkUname, trigger: "blur" }],
+        utel: [{ validator: checkUtel, trigger: "blur" }],
       },
     };
   },
@@ -170,7 +183,7 @@ export default {
   top: 80px;
   left: 15px;
   /* left: 10px; */
-  padding-bottom: 120px;
+  padding-bottom: 160px;
   border-radius: 30px;
   box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }

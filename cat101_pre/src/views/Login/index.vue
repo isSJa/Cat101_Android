@@ -179,12 +179,13 @@ export default {
   font-size: large;
   font-weight: lighter;
   width: 380px;
-  height: 270px;
+  height: 240px;
   background-color: #dfd6b9;
   border-radius: 30px;
   position: absolute;
   top: 60px;
   left: 8px;
+  padding-top: 20px;
   box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
