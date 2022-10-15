@@ -18,7 +18,6 @@ new Vue({
   store,
   router,
 }).$mount('#app')
-
 import { Message } from 'element-ui';
 Vue.prototype.$message = function(msg) {
   return Message({

@@ -1,6 +1,5 @@
 <template>
   <div>
-<!--    <el-page-header @back="$router.push('/layout/user')"></el-page-header>-->
     <div class="info">
       <el-button type="danger" plain class="star" @click="star">收藏</el-button>
       <el-image :src=(cat.curl) :preview-src-list="srcList" title="点击查看大图"></el-image>
@@ -19,8 +18,8 @@
         </div>
       </div>
       <div class="btn">
-<!--        TODO:申请完成后，能将按钮 disabled 然后文字为：已领养-->
-        <el-button type="warning" plain @click="$router.push('/layout/apply')">申请领养</el-button>
+        <!--        TODO:申请完成后，能将按钮 disabled 然后文字为：已领养-->
+        <el-button type="warning" plain @click="$router.push('/layout/apply')" :disabled="isDisabled">申请领养</el-button>
       </div>
     </div>
   </div>
@@ -38,15 +37,17 @@ export default {
         JSON.parse(localStorage.getItem('cat')).curl,
       ],
       cat: {},
-      form:{
-        uid:'',
-        cid:'',
-      }
+      form: {
+        uid: '',
+        cid: '',
+      },
+      isDisabled: true
     };
   },
   methods: {
     indexs: async function () {
-      this.cat=JSON.parse(localStorage.getItem('cat'));
+      this.cat = JSON.parse(localStorage.getItem('cat'));
+      if (this.cat.cisadopt == 0) this.isDisabled = false;
     },
     async star() {
       this.form.uid = JSON.parse(localStorage.getItem('user')).uid;
@@ -58,7 +59,7 @@ export default {
       }
     },
   },
-  created:async function(i) {
+  created: async function (i) {
     //自动加载indexs方法
     this.indexs();
   }
@@ -67,13 +68,7 @@ export default {
 
 <!-- <style lang="less" scoped></style> -->
 <style scoped>
-  /**{*/
-  /*  outline: solid #f00 1px !important;*/
-  /*  background: #000 !important;*/
-  /*  color: #fff !important;*/
-  /*}*/
-
-  .info {
+.info {
   position: relative;
   width: 300px;
   margin: 0 auto;
@@ -109,7 +104,7 @@ export default {
 
 .btn {
   width: 150px;
-  margin: 50px auto;
+  margin: 50px auto 0;
 }
 
 .el-button:last-child {
@@ -133,6 +128,7 @@ export default {
   top: -22px;
   z-index: 999;
 }
+
 .el-col el-col-24 {
   background-color: #e6ca99;
 }

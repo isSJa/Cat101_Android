@@ -6,7 +6,7 @@
           <div class="grid-content">
             <el-image :src=(i.curl) @click="turnInto(i.aid)"></el-image>
             <div class="title">{{ i.cname }}</div>
-            <div class="status">
+            <div class="color">
               <div v-if="i.cisadopt==0" class="no">审核不通过</div>
               <div v-else-if="i.cisadopt==1" class="wait">审核中</div>
               <div v-else-if="i.cisadopt==2" class="yes">审核通过</div>
@@ -14,6 +14,11 @@
             <div class="content">申请原因：{{ i.ainfo }}</div>
           </div>
         </el-col>
+      </div>
+
+      <div class="none"  v-show="isShow">
+        <p>您暂时还没有申请内容哦</p>
+        <h4>快去首页申请喵喵吧~</h4>
       </div>
     </el-row>
   </div>
@@ -28,6 +33,7 @@ export default {
     return {
       applyALL: [],
       user:JSON.parse(localStorage.getItem('user')),
+      isShow:false,
     };
   },
   methods: {
@@ -35,12 +41,14 @@ export default {
       const {data: res} = await mineAPI(this.user.uid);
       if (res.code === '200') {
         this.applyALL = res.data;
+        if(this.applyALL[0].aid==null)this.applyALL=null;
+        if (this.applyALL == null || this.applyALL[0].aid == null)
+          this.isShow=true;
       } else {
         this.$message.error(res.msg) //后端返回失败结果，提示后端返回的错误message或者也可以自己设置提示
       }
     },
     async turnInto(aid){
-      // console.log(aid);
       const {data: res} = await applyInfoAPI(aid);
       if (res.code === '200') {
         localStorage.setItem('apply',JSON.stringify(res.data));
@@ -107,7 +115,7 @@ export default {
   border-bottom: 1px #b6b6b6 solid;
 }
 
-.status {
+.color {
   font-size: 18px;
   margin-bottom: 10px;
   text-align: center;
@@ -141,5 +149,13 @@ export default {
 .wait{
   font-weight: bold;
   font-size: 5px;
+}
+
+.none {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 </style>

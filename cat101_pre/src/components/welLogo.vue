@@ -9,7 +9,7 @@
     <!-- 右边的消息和头像以及设置按钮 -->
     <div class="block">
       <div class="logo" @click="$router.push('/layout/user')">
-        <img src="../assets/img/logo-1.png" alt="LOGO" />
+        <img src="../assets/img/logo-1.png" alt="LOGO"/>
       </div>
 
       <!--TODO：以下代码需要进行修改-->
@@ -30,9 +30,9 @@
         </el-badge>
       </div>
       <!-- 用户头像图标 -->
-      <!--      <div style="float: right; margin-right: 3px; margin-top: 1px">-->
-      <!--        <el-avatar icon="el-icon-user-solid" :size="35"></el-avatar>-->
-      <!--      </div>-->
+      <div style="float: right; margin-right: 3px; margin-top: 1px" @click="turnIntoUser">
+        <el-avatar icon="el-icon-user-solid" :size="35" style="cursor: pointer"></el-avatar>
+      </div>
     </div>
   </div>
 </template>
@@ -42,17 +42,20 @@ export default {
   data() {
     return {
       circleUrl:
-        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+          "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       squareUrl:
-        "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
+          "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
       sizeList: ["large", "medium", "small"],
     };
   },
-  methods:{
-    quit(){
+  methods: {
+    quit() {
       this.$router.push('/layout/login');
       this.$store.state.isNew = false;
       this.$store.state.isLogin = true;
+    },
+    turnIntoUser(){
+      this.$router.push('/layout/self');
     }
   }
 };
@@ -72,7 +75,7 @@ export default {
 .logo {
   float: left;
   height: 56px;
-  margin-left: 12px;
+  margin-left: 0px;
 }
 
 .logo img {
