@@ -4,7 +4,7 @@
       class="el-menu-demo"
       mode="horizontal"
       router
-      v-show="this.$route.meta.isShow"
+      v-if="this.$route.meta.isShow"
       >
         <!-- 点击导航栏跳转到首页 -->
       <el-menu-item index="/layout/user" default-active>
