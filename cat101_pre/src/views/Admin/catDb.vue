@@ -1,19 +1,34 @@
 <template>
   <el-main>
     <el-table
-        :data="
+      :data="
         tableData.filter(
           (data) =>
             !search || data.name.toLowerCase().includes(search.toLowerCase())
         )
       "
-        style="width: 100%"
+      style="width: 100%"
     >
       <!-- 表头 -->
       <el-table-column label="编号" prop="cid"></el-table-column>
       <el-table-column label="昵称" prop="cname"></el-table-column>
       <el-table-column label="花色" prop="ccolor"></el-table-column>
-      <el-table-column label="图片" prop="curl"></el-table-column>
+      <el-table-column
+        label="图片"
+        prop="curl"
+        align="center"
+        width="150px"
+        padding="0px"
+        :show-overflow-tooltip="true"
+      >
+        <template slot-scope="scope">
+          <img
+            :src="tableData[scope.$index].curl"
+            alt=""
+            style="width: 36px; height: 36px"
+          />
+        </template>
+      </el-table-column>
       <el-table-column label="描述" prop="cinfo"></el-table-column>
       <el-table-column label="领养状态" prop="cisadopt"></el-table-column>
 
@@ -26,11 +41,8 @@
         </template>
         <!-- 删除和编辑按钮 -->
         <template slot-scope="scope">
-          <el-button
-              size="mini"
-              type="danger"
-              @click="handleDelete(scope.row)"
-          >删除
+          <el-button size="mini" type="danger" @click="handleDelete(scope.row)"
+            >删除
           </el-button>
         </template>
       </el-table-column>
@@ -39,14 +51,11 @@
 </template>
 
 <script>
-import {catAPI, deleteCatAPI} from "@/api";
-// import { catAPI } from "@/api";
+import { catAPI, deleteCatAPI } from "@/api";
 //用于向后端交互
-// import { url } from 'inspector';
-// import { type } from 'os';
 export default {
   name: "myCatdb",
-  inject: ['reload'],
+  inject: ["reload"],
   data() {
     return {
       tableData: [], //catList
@@ -58,21 +67,30 @@ export default {
   },
   methods: {
     getCat: async function () {
-      const {data: res} = await catAPI();
+      const { data: res } = await catAPI();
       this.tableData = res.data;
-      // console.log(res.data);
+      for (let i = 0;i <= this.tableData.length;i++){
+          if (this.tableData[i].cisadopt == 0) {
+          this.tableData[i].cisadopt = "待领养";
+        } else if (this.tableData[i].cisadopt == 1) {
+          this.tableData[i].cisadopt = "有人申请中";
+        } else {
+          this.tableData[i].cisadopt = "已被领养";
+        }
+        }
+      console.log(res.data);
     },
     async handleDelete(cat) {
-      const {data: res} = await deleteCatAPI(cat.cid);
-      if (res.code === '200') {
+      const { data: res } = await deleteCatAPI(cat.cid);
+      if (res.code === "200") {
         this.$message.success("删除猫咪成功！");
         this.reload();
       }
-    }
+    },
   },
   activated() {
     this.getCat();
-  }
+  },
 };
 </script>
 <style>
