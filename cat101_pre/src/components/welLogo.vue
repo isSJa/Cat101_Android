@@ -32,6 +32,8 @@
       <!-- 用户头像图标 -->
       <div style="float: right; margin-right: 3px; margin-top: 1px" @click="turnIntoUser">
         <el-avatar icon="el-icon-user-solid" :size="35" style="cursor: pointer"></el-avatar>
+        <!--        欢迎语句，TODO：注册和登录界面不展示，登录进入后展示-->
+        <div class="uxname">欢迎您！{{ user.uxname }}</div>
       </div>
     </div>
   </div>
@@ -46,18 +48,36 @@ export default {
       squareUrl:
           "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
       sizeList: ["large", "medium", "small"],
+      user: JSON.parse(localStorage.getItem('user')),
     };
   },
   methods: {
     quit() {
-      this.$router.push('/layout/login');
-      this.$store.state.isNew = false;
-      this.$store.state.isLogin = true;
+      localStorage.removeItem("user");
+      localStorage.removeItem("cat");
+      localStorage.removeItem("cats");
+      localStorage.removeItem("apply");
+      this.$store.commit("cisLogin");
+      this.$store.commit("cisNew");
+      // console.log(this.$store.state.isLogin, this.$store.state.isNew); // 测试点击退出后能否再次调用判断方法根据缓存中是否有user值来改变button的隐藏。
+      this.$router.push("/layout/login");
     },
-    turnIntoUser(){
+    turnIntoUser() {
       this.$router.push('/layout/self');
-    }
-  }
+    },
+    turnIntoIndex() {
+      if (localStorage.getItem('user')) {
+        this.$router.push("/layout/user");
+      } else {
+        this.$router.push("/layout/login");
+      }
+    },
+  },
+  created() {
+    this.$store.commit("cisLogin");
+    this.$store.commit("cisNew");
+    // console.log(this.$store.state.isLogin, this.$store.state.isNew); //测试是否能根据缓存中是否有user键来改变button的显示隐藏
+  },
 };
 </script>
 
@@ -96,5 +116,10 @@ export default {
   height: 32px;
   margin-top: 8px;
   margin-right: 20px;
+}
+
+.uxname {
+  font-size: 12px;
+  cursor: pointer;
 }
 </style>

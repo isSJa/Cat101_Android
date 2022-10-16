@@ -8,6 +8,10 @@
           <el-form-item label="账号" prop="uname">
             <el-input v-model="ruleForm.uname" autocomplete="off" required="true"></el-input>
           </el-form-item>
+          <!-- 昵称 -->
+          <el-form-item label="昵称" prop="uxname">
+            <el-input v-model="ruleForm.uxname" autocomplete="off" required="true"></el-input>
+          </el-form-item>
           <!-- 密码 -->
           <el-form-item label="密码" prop="upwd">
             <el-input type="password" v-model="ruleForm.upwd" autocomplete="off"></el-input>
@@ -18,7 +22,7 @@
           </el-form-item>
           <!--电话号码-->
           <el-form-item label="电话号码" prop="utel">
-            <el-input type="text" onkeyup="value=value.replace(/[^\d]/g,'')" v-model="ruleForm.utel" autocomplete="off"></el-input>
+            <el-input type="text" onkeyup = "value=value.replace(/[^\d]/g,'')" v-model="ruleForm.utel" autocomplete="off"></el-input>
           </el-form-item>
           <!-- 下面是提交和重置按钮，我改变了按钮的样式 -->
           <el-form-item>
@@ -42,33 +46,19 @@
 import { registerAPI } from "@/api/index";
 export default {
   name: "myRegister",
-  // 数据
+// 数据
   data() {
     var checkUname = (rule, value, callback) => {
       if (!value) {
         return callback(new Error("账号不能为空"));
-      } else {
+      }else {
         callback();
       }
-      // setTimeout(() => {
-      //   if (!Number.isInteger(value)) {
-      //     callback(new Error("请输入数字值"));
-      //   } else {
-      //     if (value < 18) {
-      //       callback(new Error("必须年满18岁"));
-      //     } else {
-      //       callback();
-      //     }
-      //   }
-      // }, 1000);
     };
-    var validatePass = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("请输入密码"));
-      } else {
-        if (this.ruleForm.checkPass !== "") {
-          this.$refs.ruleForm.validateField("checkPass");
-        }
+    var checkUxname = (rule, value, callback) => {
+      if (!value) {
+        return callback(new Error("昵称不能为空"));
+      }else {
         callback();
       }
     };
@@ -81,6 +71,16 @@ export default {
         callback();
       }
     }
+    var validatePass = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入密码"));
+      } else {
+        if (this.ruleForm.checkPass !== "") {
+          this.$refs.ruleForm.validateField("checkPass");
+        }
+        callback();
+      }
+    };
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请再次输入密码"));
@@ -92,15 +92,15 @@ export default {
     };
     return {
       ruleForm: {
-        uname: "",
+        uname:"",
         upwd: "",
-        uxname: "123",
-        usex: "1",
-        utel: "",
-        usite: "1",
-        utype: "0",
-        usrl: "1",
-        uinfo: "1",
+        uxname:"",
+        usex:"1",
+        utel:"",
+        usite:"1",
+        utype:"0",
+        usrl:"1",
+        uinfo:"1",
         checkPass: "",
 
       },
@@ -108,6 +108,7 @@ export default {
         upwd: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
         uname: [{ validator: checkUname, trigger: "blur" }],
+        uxname: [{ validator: checkUxname, trigger: "blur" }],
         utel: [{ validator: checkUtel, trigger: "blur" }],
       },
     };
@@ -115,21 +116,21 @@ export default {
 
   // 方法
   methods: {
-    //点击提交表单触发    校验和提交信息到后端接口
+//点击提交表单触发    校验和提交信息到后端接口
     submitForm(formName) {
-      this.$refs[formName].validate(async (valid) => {
+      this.$refs[formName].validate( async (valid) => {
         if (valid) {
           console.log(this.ruleForm);                //打印出从表单提交来的需要向后端传递的数据，用于验证编写是否成功，后续可删除这段！！！！！！！
           const json = JSON.stringify(this.ruleForm);
-          const { data: res } = await registerAPI(json);    //提交表单后获取到表单数据对象ruleForm然后使用axios传递给接口函数，得到一个返回值，是promise对象
+          const {data :res} = await registerAPI(json);    //提交表单后获取到表单数据对象ruleForm然后使用axios传递给接口函数，得到一个返回值，是promise对象
           console.log(res.code);                                        //打印后端返回结果,用于验证编写是否成功，后续可删除这段！！！！！！！
 
-          if (res.code === '200') {
-
+          if(res.code === '200') {
             this.$message.success("注册成功！！")                            ////后端返回成功结果，提示后端返回的错误message或者也可以自己设置提示
             this.$router.push('/layout/login')
 
-          } else {
+
+          }else{
             this.$message.error(res.msg) ////后端返回失败结果，提示后端返回的错误message或者也可以自己设置提示
           }
 
@@ -146,24 +147,6 @@ export default {
   },
 };
 </script>
-<style >
-/* .grid-content {
-  box-sizing: border-box;
-  background-image: url(@/assets/img/bg1.png);
-  width: 412px;
-  position: absolute;
-  left: 0;
-  height: 750px;
-} */
-.el-row {
-  height: 821px;
-}
-
-
-/* .el-col {
-  height: 750px;
-} */
-</style>
 <style scoped>
 .el-link {
   position: relative;
@@ -177,7 +160,7 @@ export default {
 
 .inset {
   width: 380px;
-  height: 200px;
+  height: 270px;
   background-color: #dfd6b9;
   position: absolute;
   top: 80px;
