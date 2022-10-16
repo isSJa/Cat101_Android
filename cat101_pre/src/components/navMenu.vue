@@ -3,7 +3,9 @@
     <el-menu :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
-      router>
+      router
+      v-show="this.$route.meta.isShow"
+      >
         <!-- 点击导航栏跳转到首页 -->
       <el-menu-item index="/layout/user" default-active>
         <template slot="title">
@@ -12,7 +14,7 @@
         </template>
       </el-menu-item>
         <!-- 点击导航栏跳转到我的申请 -->
-      <el-menu-item index="/layout/Mine" >
+      <el-menu-item index="/layout/mine" >
         <template slot="title">
         <i class="el-icon-user-solid" style="margin: 0px;"></i>
         <span>我的申请</span>

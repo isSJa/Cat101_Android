@@ -30,10 +30,11 @@
         </el-badge>
       </div>
       <!-- 用户头像图标 -->
-      <div style="float: right; margin-right: 10px; margin-top: 5px" @click="turnIntoUser">
+      <div style="float: right; margin-right: 10px; margin-top: -3px" @click="turnIntoUser" v-if="$store.state.isNew">
         <el-avatar icon="el-icon-user-solid" :size="35" style="cursor: pointer"></el-avatar>
         <!--        欢迎语句，TODO：注册和登录界面不展示，登录进入后展示-->
 <!--        <div class="uxname">欢迎您！{{ user.uxname }}</div>-->
+        <div class="uxname">欢迎您！{{$store.state.user.uxname}}</div>
       </div>
     </div>
   </div>

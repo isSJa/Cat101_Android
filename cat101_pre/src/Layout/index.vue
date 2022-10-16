@@ -1,7 +1,7 @@
 <template>
   <div>
     <welLogo></welLogo>
-    <navMenu v-show="this.$route.meta.isShow"></navMenu>
+    <navMenu></navMenu>
 
     <!-- 中间区域layout  左侧是导航栏 右侧是路由页面   -->
     <el-row :gutter="0">
