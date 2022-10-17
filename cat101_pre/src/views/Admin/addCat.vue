@@ -23,14 +23,16 @@
 <!--        </el-form-item>-->
         <el-form-item label="上传图片" prop="imageUrl">
           <el-upload
-            action="http://10.151.108.84:8082/file/upload"
+
+            action="http://39.105.141.55:8082/file/upload"
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-success="handleAvatarSuccess"
             :on-remove="handleRemove"
           >
             <i class="el-icon-plus"></i>
-          </el-upload>
+          </el-upload
+            >
           <el-dialog :visible.sync="dialogVisible">
             <img width="100%" :src="dialogImageUrl" alt="" />
           </el-dialog>

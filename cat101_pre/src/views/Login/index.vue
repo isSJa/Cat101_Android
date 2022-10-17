@@ -87,6 +87,10 @@ export default {
           this.$message.success("登录成功"); //后端返回成功结果，提示后端返回的成功message或者也可以自己设置提示
           // this.updataToken(res.token)
           localStorage.setItem("user", JSON.stringify(res.data)); // 存储用户信息到浏览器
+
+          this.$store.commit('cUser')  //登录成功重新get user
+          console.log(this.$store.state.user);
+
           if (res.data.utype === 0) {
             this.$router.push("/layout/user"); //跳转到首页
             this.$store.state.isNew = true; //让welLogin组件上的“新消息”按钮出现
@@ -179,12 +183,13 @@ export default {
   font-size: large;
   font-weight: lighter;
   width: 380px;
-  height: 270px;
+  height: 240px;
   background-color: #dfd6b9;
   border-radius: 30px;
   position: absolute;
   top: 60px;
   left: 8px;
+  padding-top: 20px;
   box-shadow: 0 0 8px 3px rgb(157, 154, 154);
 }
 
